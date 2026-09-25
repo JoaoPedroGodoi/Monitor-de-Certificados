@@ -17,15 +17,15 @@ SMTP. Pensada para rodar como executável agendado no Windows Task Scheduler.
 ## Estrutura do repositório
 
 ```
-01_fontes/v1.0.0/        # Código-fonte da aplicação
-02_documentacao/v1.0.0/  # Documentação técnica
+01_fontes/v1.0.1/        # Código-fonte da aplicação
+02_documentacao/v1.0.1/  # Documentação técnica
 03_notas_versao/         # Changelog
 ```
 
 ## Uso
 
 Detalhes de configuração, instalação e execução estão no
-[README do código-fonte](01_fontes/v1.0.0/README.md).
+[README do código-fonte](01_fontes/v1.0.1/README.md).
 
 > Os valores em `config.py` neste repositório são exemplos fictícios —
 > substitua pela URL, destinatários e servidor SMTP do seu ambiente antes de
