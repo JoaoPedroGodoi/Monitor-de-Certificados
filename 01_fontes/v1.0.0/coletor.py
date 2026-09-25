@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-from config import URL, TIMEOUT
+try:
+    from config_local import URL, TIMEOUT
+except ImportError:
+    from config import URL, TIMEOUT
 
 def obter_certificados():
     response = requests.get(URL, timeout=TIMEOUT)
@@ -36,7 +39,7 @@ def obter_certificados():
                 indices["Identificador"]
             ].get_text(strip=True),
             "status": colunas[
-                indices["Status do Dado de Acesso"]
+                indices["Status Login no Tribunal"]
             ].get_text(strip=True),
             "classificacao": colunas[
                 indices["Classificação"]

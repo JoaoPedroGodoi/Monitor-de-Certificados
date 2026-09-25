@@ -1,6 +1,9 @@
 import smtplib
 from email.message import EmailMessage
-from config import EMAIL_DESTINATARIOS, ASSUNTO_EMAIL, SMTP_SERVIDOR, SMTP_PORTA, EMAIL_REMETENTE
+try:
+    from config_local import EMAIL_DESTINATARIOS, ASSUNTO_EMAIL, SMTP_SERVIDOR, SMTP_PORTA, EMAIL_REMETENTE
+except ImportError:
+    from config import EMAIL_DESTINATARIOS, ASSUNTO_EMAIL, SMTP_SERVIDOR, SMTP_PORTA, EMAIL_REMETENTE
 
 
 def enviar_email(problemas, operantes):

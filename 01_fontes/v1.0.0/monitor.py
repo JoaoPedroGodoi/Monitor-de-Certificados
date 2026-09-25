@@ -1,6 +1,9 @@
 from coletor import obter_certificados
 from email_sender import enviar_email
-from config import CERTIFICADOS_IGNORADOS, CERTIFICADOS_MONITORADOS
+try:
+    from config_local import CERTIFICADOS_IGNORADOS, CERTIFICADOS_MONITORADOS
+except ImportError:
+    from config import CERTIFICADOS_IGNORADOS, CERTIFICADOS_MONITORADOS
 
 
 def main():
