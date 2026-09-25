@@ -16,8 +16,8 @@ def main():
     certificados_monitorados = []
 
     for certificado in certificados:
-        identificador = certificado["identificador"]
-        if identificador in CERTIFICADOS_IGNORADOS or identificador not in CERTIFICADOS_MONITORADOS:
+        codigo = certificado["codigo"]
+        if codigo in CERTIFICADOS_IGNORADOS or codigo not in CERTIFICADOS_MONITORADOS:
             continue
 
         if certificado["status"].lower() == "inoperante":

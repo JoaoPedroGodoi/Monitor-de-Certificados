@@ -15,7 +15,7 @@ necessidade de intervenção manual.
 
 ## 2. Versão
 
-Versão atual: 1.0.0
+Versão atual: 1.0.1
 Status: Versão em produção
 
 ## 3. Funcionalidades
@@ -23,7 +23,7 @@ Status: Versão em produção
 A aplicação possui as seguintes funcionalidades:
 - Acesso automático à URL dos certificados;
 - Leitura da tabela disponibilizada diretamente no HTML;
-- Identificação dos certificados pelo campo "Identificador";
+- Identificação dos certificados pelo campo "Código Acesso";
 - Configuração de certificados monitorados;
 - Configuração de certificados ignorados;
 - Verificação do status dos certificados;
@@ -35,15 +35,13 @@ A aplicação possui as seguintes funcionalidades:
 - Execução automatizada por meio do Windows Task Scheduler.
 
 ## 4. Identificação dos Certificados
-A aplicação utiliza o campo "Identificador" ou "Nome" do certificado como
+A aplicação utiliza o campo "Código Acesso" do certificado como
 referência principal para determinar quais certificados devem ser
 monitorados.
-O código de acesso do certificado não é utilizado como identificador
-principal.
-Essa abordagem foi adotada porque o código de acesso pode ser alterado
-quando um certificado é atualizado ou renovado.
-O código continua sendo coletado e apresentado no relatório enviado por
-e-mail.
+O identificador/nome do certificado é coletado e apresentado no
+relatório, mas não é utilizado como chave de filtro.
+Essa abordagem exige atualizar a configuração sempre que um certificado é
+renovado e recebe um novo código de acesso.
 
 ## 5. Estrutura do Projeto
 A estrutura básica do projeto é:
@@ -116,12 +114,12 @@ Os certificados que devem ser acompanhados devem ser adicionados à
 configuração de certificados monitorados.
 Exemplo:
     CERTIFICADOS_MONITORADOS = {
-        "Certificado Empresa A",
-        "Certificado Empresa B",
-        "Certificado Empresa C"
+        "100001",
+        "100002",
+        "100003"
     }
 
-A aplicação compara esses valores com o campo "Identificador" obtido
+A aplicação compara esses valores com o campo "Código Acesso" obtido
 da página.
 
 ## 8. Certificados Ignorados
@@ -129,8 +127,8 @@ Certificados que não devem participar do monitoramento devem ser
 adicionados à configuração de certificados ignorados.
 Exemplo:
     CERTIFICADOS_IGNORADOS = {
-        "Certificado Teste",
-        "Certificado Homologacao"
+        "900001",
+        "900002"
     }
 
 Os certificados ignorados são desconsiderados durante o processamento.
@@ -292,6 +290,16 @@ Funcionalidades incluídas:
 - Relatório HTML;
 - Execução como executável;
 - Agendamento pelo Windows Task Scheduler.
+
+### Versão 1.0.1
+Correção de bugs na coleta e no filtro de certificados:
+
+- Ajuste da coleta de status após alteração da coluna na página
+  monitorada ("Status do Dado de Acesso" renomeada para "Status Login
+  no Tribunal");
+- Correção do filtro de certificados monitorados/ignorados no
+  monitor.py para comparar pelo código de acesso, conforme a chave
+  utilizada no config.py.
 
 ## 20. Responsável
 

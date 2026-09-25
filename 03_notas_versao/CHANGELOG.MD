@@ -1,5 +1,14 @@
 # Histórico de Versões
 
+## 1.0.1 - 25/09/2026
+
+### Corrigido
+- Coleta de status após a página monitorada renomear a coluna
+  "Status do Dado de Acesso" para "Status Login no Tribunal".
+- Filtro de certificados monitorados/ignorados no monitor.py, que
+  comparava pelo campo "Identificador" enquanto o config.py já usava o
+  código de acesso como chave.
+
 ## 1.0.0 - 13/08/2026
 
 ### Adicionado

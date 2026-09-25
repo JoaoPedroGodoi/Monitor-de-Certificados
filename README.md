@@ -8,7 +8,7 @@ SMTP. Pensada para rodar como executável agendado no Windows Task Scheduler.
 ## Funcionalidades
 
 - Leitura automática da tabela de certificados (scraping com BeautifulSoup);
-- Identificação dos certificados pelo campo "Identificador";
+- Identificação dos certificados pelo campo "Código Acesso";
 - Listas configuráveis de certificados monitorados e ignorados;
 - Relatório HTML com destaque visual para operantes (verde) e inoperantes (vermelho);
 - Envio automático do relatório por e-mail via SMTP;
